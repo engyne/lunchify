@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "dev": "vite apps/lunchify"
+    "serve:fe": "nx serve lunchify",
+    "serve:be": "nx serve lunchify-backend"
   },
   "private": true,
   "dependencies": {
