@@ -5,7 +5,7 @@ import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 
 export default defineConfig({
   root: __dirname,
-  cacheDir: '../../node_modules/.vite/apps/Lunchify',
+  cacheDir: '../../node_modules/.vite/apps/lunchify',
 
   server: {
     port: 4200,
@@ -25,7 +25,7 @@ export default defineConfig({
   // },
 
   build: {
-    outDir: '../../dist/apps/Lunchify',
+    outDir: '../../dist/apps/lunchify',
     emptyOutDir: true,
     reportCompressedSize: true,
     commonjsOptions: {
@@ -41,7 +41,7 @@ export default defineConfig({
 
     reporters: ['default'],
     coverage: {
-      reportsDirectory: '../../coverage/apps/Lunchify',
+      reportsDirectory: '../../coverage/apps/lunchify',
       provider: 'v8',
     },
   },
