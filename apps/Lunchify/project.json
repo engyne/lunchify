@@ -1,8 +1,8 @@
 {
-  "name": "Lunchify",
+  "name": "lunchify",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "sourceRoot": "apps/Lunchify/src",
-  "// targets": "to see all targets run: nx show project Lunchify --web",
+  "sourceRoot": "apps/lunchify/src",
+  "// targets": "to see all targets run: nx show project lunchify --web",
   "targets": {}
 }
