@@ -1,0 +1,17 @@
+{
+  "name": "lunchify-backend-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "implicitDependencies": ["lunchify-backend"],
+  "targets": {
+    "e2e": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{e2eProjectRoot}"],
+      "options": {
+        "jestConfig": "apps/lunchify-backend-e2e/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "dependsOn": ["lunchify-backend:build"]
+    }
+  }
+}
