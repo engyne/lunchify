@@ -2,7 +2,9 @@
   "name": "@org/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "dev": "vite apps/lunchify"
+  },
   "private": true,
   "dependencies": {
     "vue": "^3.3.4"
