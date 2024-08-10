@@ -25,7 +25,7 @@ export default defineConfig({
   // },
 
   build: {
-    outDir: '../../dist/apps/lunchify',
+    outDir: '../../dist/apps/lunchify-frontend',
     emptyOutDir: true,
     reportCompressedSize: true,
     commonjsOptions: {
@@ -41,7 +41,7 @@ export default defineConfig({
 
     reporters: ['default'],
     coverage: {
-      reportsDirectory: '../../coverage/apps/lunchify',
+      reportsDirectory: '../../coverage/apps/lunchify-frontend',
       provider: 'v8',
     },
   },
