@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "serve:fe": "nx serve lunchify",
+    "serve:fe": "nx serve lunchify-frontend",
     "serve:be": "nx serve lunchify-backend"
   },
   "private": true,
@@ -11,6 +11,7 @@
     "axios": "^1.6.0",
     "cors": "^2.8.5",
     "express": "^4.18.1",
+    "pg": "^8.12.0",
     "tslib": "^2.3.0",
     "vue": "^3.3.4"
   },
@@ -33,6 +34,7 @@
     "@swc/helpers": "~0.5.11",
     "@types/jest": "^29.4.0",
     "@types/node": "~18.16.9",
+    "@types/pg": "^8.11.6",
     "@typescript-eslint/eslint-plugin": "^7.16.0",
     "@typescript-eslint/parser": "^7.16.0",
     "@vitejs/plugin-vue": "^4.5.0",
