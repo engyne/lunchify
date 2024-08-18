@@ -1,14 +1,18 @@
-import { Pool } from 'pg';
+import { Sequelize } from 'sequelize';
 
-const pool = new Pool({
-  user: process.env.DB_USER,
+const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
   host: process.env.DB_HOST,
-  database: process.env.DB_NAME,
-  password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT as unknown as number,
-  ssl: {
-    rejectUnauthorized: false
-  },
+  dialect: 'postgres',
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false
+    }
+  }
 });
 
-export default pool;
+sequelize.authenticate()
+  .then(() => console.log('Database connected...'))
+  .catch(err => console.log('Error: ' + err));
+
+export default sequelize;

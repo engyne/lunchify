@@ -1,7 +1,8 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
+import router from './router';
 import cors from 'cors';
 import * as path from 'path';
-import pool from './db';
+import sequelize from './db';
 
 const app = express();
 
@@ -9,21 +10,16 @@ const corsConfig = {origin: process.env.LUNCHIFY_CLIENT_URL};
 
 app
   .use(cors(corsConfig))
-  .use('/assets', express.static(path.join(__dirname, 'assets')));
+  .use('/assets', express.static(path.join(__dirname, 'assets')))
+  .use(router);
 
 app.get('/api', (req, res) => {
   res.send({ message: 'Welcome to lunchify-backend!' });
 });
 
-app.get('/api/places', async (req: Request, res: Response) => {
-  try {
-    const result = await pool.query('SELECT * FROM "Places"');
-    res.json(result.rows);
-  } catch (err) {
-    console.error('Error fetching places:', err);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
+sequelize.sync()
+  .then(() => console.log('Database synced'))
+  .catch(err => console.log('Error syncing database: ' + err));
 
 const port = process.env.PORT || 3333;
 const server = app.listen(port, () => {
