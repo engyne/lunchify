@@ -18,7 +18,6 @@ export const getPlaces = async (req: Request, res: Response) => {
 };
 
 export const getPlaceById = async (req: Request, res: Response): Promise<void> => {
-  console.log('heyo');
   try {
     const { id } = req.params;
     const place = await Place.findByPk(id);
