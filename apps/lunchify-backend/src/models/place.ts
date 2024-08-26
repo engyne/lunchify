@@ -22,6 +22,7 @@ Place.init({
   name: {
     type: DataTypes.STRING,
     allowNull: false,
+    unique: true,
   },
   mapUrl: {
     type: DataTypes.STRING,

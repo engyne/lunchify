@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import Place from '../models/place';
+import { ValidationError } from 'sequelize';
 
 export const getPlaces = async (req: Request, res: Response) => {
   try {
@@ -18,7 +19,6 @@ export const getPlaces = async (req: Request, res: Response) => {
 };
 
 export const getPlaceById = async (req: Request, res: Response): Promise<void> => {
-  console.log('heyo');
   try {
     const { id } = req.params;
     const place = await Place.findByPk(id);
@@ -41,5 +41,32 @@ export const getPlaceById = async (req: Request, res: Response): Promise<void> =
       success: false,
       message: 'Server Error: Unable to retrieve place',
     });
+  }
+};
+
+export const createPlace = async (req: Request, res: Response): Promise<void> => {
+  try {
+    console.log(req)
+    const { name, mapUrl } = req.body;
+
+    const newPlace = await Place.create({ name, mapUrl });
+
+    res.status(201).json({
+      success: true,
+      data: newPlace,
+    });
+  } catch (error) {
+    if (error instanceof ValidationError) {
+      res.status(400).json({
+        success: false,
+        message: `Validation Error: Place with this name already exists`,
+      });
+    } else {
+      console.error('Error creating place:', error);
+      res.status(500).json({
+        success: false,
+        message: 'Server Error: Unable to create place',
+      });
+    }
   }
 };

@@ -11,6 +11,7 @@ const corsConfig = {origin: process.env.LUNCHIFY_CLIENT_URL};
 app
   .use(cors(corsConfig))
   .use('/assets', express.static(path.join(__dirname, 'assets')))
+  .use(express.json())
   .use(router);
 
 app.get('/api', (req, res) => {
