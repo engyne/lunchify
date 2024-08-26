@@ -4,6 +4,10 @@ import {
   getPlaceById,
   createPlace,
 } from './controllers/placesController';
+import {
+  getUserById,
+  createUser,
+} from './controllers/usersController';
 
 const router = express.Router();
 
@@ -11,5 +15,9 @@ const router = express.Router();
 router.get('/api/places', getPlaces);
 router.get('/api/places/:id', getPlaceById);
 router.post('/api/places', createPlace);
+
+// Users
+router.get('/api/users/:id', getUserById);
+router.post('/api/users', createUser);
 
 export default router;

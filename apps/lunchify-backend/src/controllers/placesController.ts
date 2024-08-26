@@ -46,7 +46,6 @@ export const getPlaceById = async (req: Request, res: Response): Promise<void> =
 
 export const createPlace = async (req: Request, res: Response): Promise<void> => {
   try {
-    console.log(req)
     const { name, mapUrl } = req.body;
 
     const newPlace = await Place.create({ name, mapUrl });

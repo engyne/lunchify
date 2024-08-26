@@ -8,6 +8,7 @@ import sequelize from '../db';
 
 class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
   declare id: number;
+  declare googleId: number;
   declare name: string;
   declare email: string;
   declare picture: string;
@@ -20,6 +21,11 @@ User.init({
     primaryKey: true,
     autoIncrement: true,
     allowNull: false,
+  },
+  googleId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    unique: true,
   },
   name: {
     type: DataTypes.STRING,
