@@ -44,6 +44,7 @@ export const createUser = async (req: Request, res: Response): Promise<void> => 
       data: newPlace,
     });
   } catch (error) {
+    // not working as expected
     if (error instanceof ValidationError) {
       res.status(400).json({
         success: false,

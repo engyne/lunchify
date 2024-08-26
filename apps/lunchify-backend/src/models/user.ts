@@ -12,7 +12,7 @@ class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
   declare name: string;
   declare email: string;
   declare picture: string;
-  declare favouritePlaceId: string | null;
+  declare favouritePlaceId: number | null;
 }
 
 User.init({
